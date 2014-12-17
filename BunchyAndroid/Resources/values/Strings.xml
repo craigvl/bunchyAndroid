@@ -2,4 +2,5 @@
 <resources>
 	<string name="googlebutton">Login with Google</string>
 	<string name="app_name">Bunchy</string>
+	<color  name="green">#8dc63f</color>
 </resources>

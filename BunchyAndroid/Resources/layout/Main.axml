@@ -2,7 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:id="@+id/loginWithGoogle">
+    android:id="@+id/bunchyLayout"
+    android:background="@color/green">
     <Button
         android:id="@+id/googleLogin"
         android:layout_width="match_parent"
@@ -13,5 +14,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/googleLogin"
-        android:id="@+id/loginWithFacebook" />
+        android:id="@+id/facebookLogin" />
+    <TextView
+        android:text="Text"
+        android:layout_width="381.9dp"
+        android:layout_height="52.4dp"
+        android:layout_below="@id/facebookLogin"
+        android:id="@+id/textViewb"
+        android:textColor="#ffffffff" />
 </RelativeLayout>
