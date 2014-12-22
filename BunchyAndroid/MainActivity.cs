@@ -10,6 +10,9 @@ using Xamarin.Auth;
 using BunchyAndroid.Models;
 using System.Collections.Generic;
 using System.Linq;
+using ByteSmith.WindowsAzure.Messaging;
+using Gcm.Client;
+using BunchyAndroid.Constant;
 
 namespace BunchyAndroid
 {
@@ -72,6 +75,7 @@ namespace BunchyAndroid
 //			}
 				
 			if (accounts.Any()) {
+				RegisterWithGCM ();
 				var rideintent = new Intent (this, typeof(RidesActivity));
 				StartActivity (rideintent);
 			} else {
@@ -82,6 +86,17 @@ namespace BunchyAndroid
 				buttonGoogle.Click += buttonGoogle_Click;
 				buttonFaceBook.Click += buttonFaceBook_Click;
 			}
+		}
+
+		public void RegisterWithGCM()
+		{
+			// Check to ensure everything's setup right
+			GcmClient.CheckDevice(this);
+			GcmClient.CheckManifest(this);
+
+			// Register for push notifications
+			System.Diagnostics.Debug.WriteLine("Registering...");
+			GcmClient.Register(this, BunchyAndroid.Constant.Constant.SenderID);
 		}
 
 		void buttonGoogle_Click(object sender, EventArgs e)

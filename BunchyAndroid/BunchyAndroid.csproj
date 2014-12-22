@@ -52,6 +52,9 @@
     <Reference Include="GCM.Client">
       <HintPath>..\Components\GCMClient-1.0\lib\android\GCM.Client.dll</HintPath>
     </Reference>
+    <Reference Include="ByteSmith.WindowsAzure.Messaging.Android">
+      <HintPath>_external\ByteSmith.WindowsAzure.Messaging.Android.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainActivity.cs" />
@@ -61,12 +64,15 @@
     <Compile Include="Services\LoginServices.cs" />
     <Compile Include="Models\RideModel.cs" />
     <Compile Include="Services\BunchyServices.cs" />
+    <Compile Include="Constants.cs" />
+    <Compile Include="GcmService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
     <None Include="Properties\AndroidManifest.xml" />
     <None Include="packages.config" />
+    <None Include="_external\ByteSmith.WindowsAzure.Messaging.Android.dll" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\Main.axml" />
@@ -85,5 +91,8 @@
       <Version>1.0</Version>
       <Visible>False</Visible>
     </XamarinComponentReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="_external\" />
   </ItemGroup>
 </Project>
