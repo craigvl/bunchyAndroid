@@ -45,15 +45,15 @@
     <Reference Include="Xamarin.Auth.Android">
       <HintPath>..\Components\xamarin.auth-1.2.3\lib\android\Xamarin.Auth.Android.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.6.0.6\lib\portable-net40+sl5+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="System.Net" />
     <Reference Include="GCM.Client">
       <HintPath>..\Components\GCMClient-1.0\lib\android\GCM.Client.dll</HintPath>
     </Reference>
     <Reference Include="ByteSmith.WindowsAzure.Messaging.Android">
       <HintPath>_external\ByteSmith.WindowsAzure.Messaging.Android.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.7\lib\portable-net40+sl5+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -71,8 +71,8 @@
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
     <None Include="Properties\AndroidManifest.xml" />
-    <None Include="packages.config" />
     <None Include="_external\ByteSmith.WindowsAzure.Messaging.Android.dll" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\Main.axml" />

@@ -16,7 +16,7 @@ using BunchyAndroid.Constant;
 
 namespace BunchyAndroid
 {
-	[Activity (Label = "BunchyRides", Icon = "@drawable/bunchy")]
+	[Activity (Label = "Rides", Icon = "@drawable/bunchy")]
 	public class RidesActivity : ListActivity
 	{
 		private IList<RideModel> rides;
@@ -32,7 +32,7 @@ namespace BunchyAndroid
 
 			rides = PopulateRides(useraccount.Username);
 
-			var names = rides.Select (r => r.Name).ToList();
+			var names = rides.Select (r => r.Name + " (" + r.KeenCount +" keen) ").ToList();
 
 			ListAdapter = new ArrayAdapter<String>(this, Android.Resource.Layout.SimpleListItem1, names);
 
