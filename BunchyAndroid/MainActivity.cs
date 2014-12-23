@@ -19,7 +19,7 @@ namespace BunchyAndroid
 	[Activity (Label = "Rides", Icon = "@drawable/bunchy")]
 	public class RidesActivity : Activity
 	{
-		private IList<RideModel> rides;
+		//private IList<RideModel> rides;
 
 		protected override void OnCreate (Bundle bundle)
 		{
@@ -28,7 +28,26 @@ namespace BunchyAndroid
 			IEnumerable<Account> accounts = AccountStore.Create (this).FindAccountsForService ("google");
 			Account useraccount = accounts.FirstOrDefault();
 
+			ActionBar.NavigationMode = ActionBarNavigationMode.Tabs;
+
 			SetContentView (Resource.Layout.Rides);
+
+			ActionBar.Tab tab = ActionBar.NewTab();
+			tab.SetText("Rides");
+			tab.SetIcon(Resource.Drawable.bunchy);
+			tab.TabSelected += (sender, args) => {
+				// Do something when tab is selected
+			};
+
+			ActionBar.AddTab(tab);
+
+			tab = ActionBar.NewTab();
+			tab.SetText("Following");
+			tab.SetIcon(Resource.Drawable.bunchy);
+			tab.TabSelected += (sender, args) => {
+				// Do something when tab is selected
+			};
+			ActionBar.AddTab(tab);
 
 			var ridesAdapter = new RidesAdapter (this, useraccount.Username);
 			var ridesListView = FindViewById<ListView> (Resource.Id.rideListView);
@@ -57,8 +76,16 @@ namespace BunchyAndroid
 		{
 			base.OnCreate (bundle);
 
+
+
 			// Set our view from the "main" layout resource
 			SetContentView (Resource.Layout.Main);
+
+
+
+
+
+
 
 			// Get our button from the layout resource,
 			// and attach an event to it
@@ -77,7 +104,6 @@ namespace BunchyAndroid
 			} else {
 				Button buttonGoogle = FindViewById<Button> (Resource.Id.googleLogin);
 				Button buttonFaceBook = FindViewById<Button> (Resource.Id.facebookLogin);
-				textView = FindViewById<TextView> (Resource.Id.textViewb);
 
 				buttonGoogle.Click += buttonGoogle_Click;
 				buttonFaceBook.Click += buttonFaceBook_Click;

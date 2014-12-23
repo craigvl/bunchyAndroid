@@ -82,7 +82,10 @@ namespace BunchyAndroid
 		{
 			
 			// aapt resource value: 0x7f060005
-			public const int RideName = 2131099653;
+			public const int KeenCount = 2131099653;
+			
+			// aapt resource value: 0x7f060004
+			public const int RideName = 2131099652;
 			
 			// aapt resource value: 0x7f060000
 			public const int bunchyLayout = 2131099648;
@@ -93,11 +96,8 @@ namespace BunchyAndroid
 			// aapt resource value: 0x7f060001
 			public const int googleLogin = 2131099649;
 			
-			// aapt resource value: 0x7f060004
-			public const int rideListView = 2131099652;
-			
 			// aapt resource value: 0x7f060003
-			public const int textViewb = 2131099651;
+			public const int rideListView = 2131099651;
 			
 			static Id()
 			{

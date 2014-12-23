@@ -20,13 +20,9 @@ namespace BunchyAndroid
 
 		void FillRides(string username)
 		{
-
 			BunchyServices _BunchyServices = new BunchyServices ();
 			List<RideModel> _RideModel = new List<RideModel>();
 			_rideModels = _BunchyServices.GetBunches (username);
-
-
-
 		}
 
 		public override int Count {
@@ -47,8 +43,13 @@ namespace BunchyAndroid
 		{
 			var view = convertView ?? _activity.LayoutInflater.Inflate (
 				Resource.Layout.RidesListItem, parent, false);
+
 			var contactName = view.FindViewById<TextView> (Resource.Id.RideName);
 			contactName.Text = _rideModels [position].Name;
+
+			var keenCount = view.FindViewById<TextView> (Resource.Id.KeenCount);
+			keenCount.Text = "Keen (" + _rideModels [position].KeenCount + ")";
+
 			return view;
 		}
 	}
