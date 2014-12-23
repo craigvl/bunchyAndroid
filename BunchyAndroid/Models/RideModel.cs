@@ -15,4 +15,3 @@ namespace BunchyAndroid
 		public string KeenCount { get; set;}
 	}
 }
-

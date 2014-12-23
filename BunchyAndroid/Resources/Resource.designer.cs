@@ -81,11 +81,11 @@ namespace BunchyAndroid
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f060005
-			public const int KeenCount = 2131099653;
+			// aapt resource value: 0x7f060006
+			public const int KeenCount = 2131099654;
 			
-			// aapt resource value: 0x7f060004
-			public const int RideName = 2131099652;
+			// aapt resource value: 0x7f060005
+			public const int RideName = 2131099653;
 			
 			// aapt resource value: 0x7f060000
 			public const int bunchyLayout = 2131099648;
@@ -97,7 +97,10 @@ namespace BunchyAndroid
 			public const int googleLogin = 2131099649;
 			
 			// aapt resource value: 0x7f060003
-			public const int rideListView = 2131099651;
+			public const int rideDetailName = 2131099651;
+			
+			// aapt resource value: 0x7f060004
+			public const int rideListView = 2131099652;
 			
 			static Id()
 			{

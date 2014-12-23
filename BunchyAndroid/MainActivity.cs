@@ -23,9 +23,27 @@ namespace BunchyAndroid
 		protected override void OnCreate (Bundle bundle)
 		{
 			base.OnCreate (bundle);
+			string id = Intent.GetStringExtra ("Id") ?? "Id not available";
 			SetContentView (Resource.Layout.RideDetail);
+			RideDetailModel _RideDetailModel = new RideDetailModel ();
+			_RideDetailModel = GetRideDetail (id);
+
+			TextView DetailName = FindViewById<TextView> (Resource.Id.rideDetailName);
+			DetailName.Text = _RideDetailModel.name;
+		}
+
+		RideDetailModel GetRideDetail(string id)
+		{
+			IEnumerable<Account> accounts = AccountStore.Create (this).FindAccountsForService ("google");
+			Account useraccount = accounts.FirstOrDefault();
+			BunchyServices _BunchyServices = new BunchyServices ();
+			RideDetailModel _RideModel = new RideDetailModel();
+			_RideModel = _BunchyServices.GetRideDetails (id,useraccount.Username );
+			return _RideModel;
 		}
 	}
+
+
 
 	[Activity (Label = "Rides", Icon = "@drawable/bunchy")]
 	public class RidesActivity : Activity
@@ -72,6 +90,7 @@ namespace BunchyAndroid
 			var listView = sender as ListView;		
 			Android.Widget.Toast.MakeText(this,"Loading....", Android.Widget.ToastLength.Short).Show();
 			var rideDetailIntent = new Intent(this, typeof(RideDetailsActivity));
+			rideDetailIntent.PutExtra ("Id", e.Id);
 			StartActivity(rideDetailIntent);
 		}
 

@@ -67,6 +67,7 @@
     <Compile Include="Constants.cs" />
     <Compile Include="GcmService.cs" />
     <Compile Include="RidesAdapter.cs" />
+    <Compile Include="Models\RideDetailModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
