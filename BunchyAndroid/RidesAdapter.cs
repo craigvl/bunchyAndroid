@@ -47,10 +47,17 @@ namespace BunchyAndroid
 			var contactName = view.FindViewById<TextView> (Resource.Id.RideName);
 			contactName.Text = _rideModels [position].Name;
 
+
+
 			var keenCount = view.FindViewById<TextView> (Resource.Id.KeenCount);
 			keenCount.Text = "Keen (" + _rideModels [position].KeenCount + ")";
 
 			return view;
+		}
+
+		void rideName_Click()
+		{
+		
 		}
 	}
 }

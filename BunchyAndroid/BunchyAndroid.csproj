@@ -82,6 +82,7 @@
     <AndroidResource Include="Resources\drawable\cyclist.jpg" />
     <AndroidResource Include="Resources\layout\Rides.axml" />
     <AndroidResource Include="Resources\layout\RidesListItem.xml" />
+    <AndroidResource Include="Resources\layout\RideDetail.axml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <ItemGroup>

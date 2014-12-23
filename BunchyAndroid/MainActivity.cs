@@ -16,6 +16,17 @@ using BunchyAndroid.Constant;
 
 namespace BunchyAndroid
 {
+
+	[Activity (Label = "RideDetails", Icon = "@drawable/bunchy")]
+	public class RideDetailsActivity : Activity
+	{
+		protected override void OnCreate (Bundle bundle)
+		{
+			base.OnCreate (bundle);
+			SetContentView (Resource.Layout.RideDetail);
+		}
+	}
+
 	[Activity (Label = "Rides", Icon = "@drawable/bunchy")]
 	public class RidesActivity : Activity
 	{
@@ -53,7 +64,15 @@ namespace BunchyAndroid
 			var ridesListView = FindViewById<ListView> (Resource.Id.rideListView);
 
 			ridesListView.Adapter = ridesAdapter;
+			ridesListView.ItemClick += OnRideItemClick;
+		}
 
+		void OnRideItemClick(object sender, AdapterView.ItemClickEventArgs e)
+		{
+			var listView = sender as ListView;		
+			Android.Widget.Toast.MakeText(this,"Loading....", Android.Widget.ToastLength.Short).Show();
+			var rideDetailIntent = new Intent(this, typeof(RideDetailsActivity));
+			StartActivity(rideDetailIntent);
 		}
 
 		List<RideModel> PopulateRides(string username)
@@ -76,17 +95,8 @@ namespace BunchyAndroid
 		{
 			base.OnCreate (bundle);
 
-
-
 			// Set our view from the "main" layout resource
 			SetContentView (Resource.Layout.Main);
-
-
-
-
-
-
-
 			// Get our button from the layout resource,
 			// and attach an event to it
 
@@ -138,9 +148,7 @@ namespace BunchyAndroid
 			_TokenResponse = loginservices.LoginExternal(access_token_return,provider);
 			return _TokenResponse;
 		}
-
-
-
+			
 		void LoginToGoogle ()
 		{
 			string access_token;
