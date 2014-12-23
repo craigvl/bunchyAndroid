@@ -6,18 +6,18 @@
     android:background="@color/green">
     <TextView
         android:id="@+id/RideName"
-        android:textAppearance="?android:attr/textAppearanceLarge"
         android:paddingLeft="10dp"
         android:text="Ride 1"
-        android:background="#fff"
         android:layout_height="50dp"
-        android:layout_width="100dp" />
+        android:layout_width="fill_parent"
+        android:textSize="10pt"
+        android:textColor="#ffffffff" />
     <TextView
         android:id="@+id/KeenCount"
-        android:textAppearance="?android:attr/textAppearanceLarge"
         android:paddingLeft="10dp"
         android:text="KeenCount"
-        android:background="#aaaa00"
         android:layout_height="50dp"
-        android:layout_width="100dp" />
+        android:layout_width="fill_parent"
+        android:textSize="8pt"
+        android:textColor="#ffffffff" />
 </LinearLayout>
