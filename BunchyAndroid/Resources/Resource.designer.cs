@@ -81,6 +81,9 @@ namespace BunchyAndroid
 		public partial class Id
 		{
 			
+			// aapt resource value: 0x7f060005
+			public const int RideName = 2131099653;
+			
 			// aapt resource value: 0x7f060000
 			public const int bunchyLayout = 2131099648;
 			
@@ -91,7 +94,7 @@ namespace BunchyAndroid
 			public const int googleLogin = 2131099649;
 			
 			// aapt resource value: 0x7f060004
-			public const int rideListTitle = 2131099652;
+			public const int rideListView = 2131099652;
 			
 			// aapt resource value: 0x7f060003
 			public const int textViewb = 2131099651;
@@ -114,6 +117,9 @@ namespace BunchyAndroid
 			
 			// aapt resource value: 0x7f030001
 			public const int Rides = 2130903041;
+			
+			// aapt resource value: 0x7f030002
+			public const int RidesListItem = 2130903042;
 			
 			static Layout()
 			{

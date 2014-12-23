@@ -66,6 +66,7 @@
     <Compile Include="Services\BunchyServices.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="GcmService.cs" />
+    <Compile Include="RidesAdapter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -80,6 +81,7 @@
     <AndroidResource Include="Resources\drawable\bunchy.png" />
     <AndroidResource Include="Resources\drawable\cyclist.jpg" />
     <AndroidResource Include="Resources\layout\Rides.axml" />
+    <AndroidResource Include="Resources\layout\RidesListItem.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <ItemGroup>

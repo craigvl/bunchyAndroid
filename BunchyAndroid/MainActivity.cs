@@ -17,7 +17,7 @@ using BunchyAndroid.Constant;
 namespace BunchyAndroid
 {
 	[Activity (Label = "Rides", Icon = "@drawable/bunchy")]
-	public class RidesActivity : ListActivity
+	public class RidesActivity : Activity
 	{
 		private IList<RideModel> rides;
 
@@ -28,16 +28,12 @@ namespace BunchyAndroid
 			IEnumerable<Account> accounts = AccountStore.Create (this).FindAccountsForService ("google");
 			Account useraccount = accounts.FirstOrDefault();
 
-			//SetContentView (Resource.Layout.Rides);
+			SetContentView (Resource.Layout.Rides);
 
-			rides = PopulateRides(useraccount.Username);
+			var ridesAdapter = new RidesAdapter (this, useraccount.Username);
+			var ridesListView = FindViewById<ListView> (Resource.Id.rideListView);
 
-			var names = rides.Select (r => r.Name + " (" + r.KeenCount +" keen) ").ToList();
-
-			ListAdapter = new ArrayAdapter<String>(this, Android.Resource.Layout.SimpleListItem1, names);
-
-			//EditText rideListTitle = FindViewById<EditText> (Resource.Id.rideListTitle);
-			//rideListTitle.Text = useraccount.Username;
+			ridesListView.Adapter = ridesAdapter;
 
 		}
 
