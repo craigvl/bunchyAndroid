@@ -17,6 +17,33 @@ using BunchyAndroid.Constant;
 namespace BunchyAndroid
 {
 
+	[Activity (Label = "NewUser", Icon = "@drawable/bunchy")]
+	public class NewUserActivity : Activity
+	{
+
+		EditText edittext;
+
+		protected override void OnCreate (Bundle bundle)
+		{
+			base.OnCreate (bundle);
+
+			SetContentView (Resource.Layout.NewUser);
+			Button buttonSubmit = FindViewById<Button> (Resource.Id.buttonNewUserSubmit);
+
+			edittext = FindViewById<EditText> (Resource.Id.editTextUserName);
+
+			buttonSubmit.Click += buttonSubmit_Click;
+
+		}
+
+		void buttonSubmit_Click(object sender, EventArgs e)
+		{
+
+			Android.Widget.Toast.MakeText(this,edittext.Text, Android.Widget.ToastLength.Short).Show();
+		}
+
+	}
+
 	[Activity (Label = "RideDetails", Icon = "@drawable/bunchy")]
 	public class RideDetailsActivity : Activity
 	{
@@ -182,19 +209,25 @@ namespace BunchyAndroid
 
 			auth.Completed += (sender , e ) =>
 			{  
-				Console.WriteLine ( e.IsAuthenticated );
-				e.Account.Properties.TryGetValue ( "access_token" , out access_token );
-				access_token_return = access_token;
-				Console.WriteLine ( access_token );
+			
+					e.Account.Properties.TryGetValue ( "access_token" , out access_token );
+					access_token_return = access_token;
+					Console.WriteLine ( access_token );
+					_TokenResponse = BunchyAuth(access_token_return,"google");
+					e.Account.Username = _TokenResponse.Username;
+					if (e.Account.Username == "New User") {
+					var newuserintent = new Intent(this, typeof(NewUserActivity));
+					StartActivity(newuserintent);
+					}
+					else
+					{
+					AccountStore.Create (this).Save (e.Account, "google");
+					var rideintent = new Intent(this, typeof(RidesActivity));
+					StartActivity(rideintent);
+					}
+				
 
-				_TokenResponse = BunchyAuth(access_token_return,"google");
 
-				e.Account.Username = _TokenResponse.Username;
-
-				AccountStore.Create (this).Save (e.Account, "google");
-
-				var rideintent = new Intent(this, typeof(RidesActivity));
-				StartActivity(rideintent);
 				//textView.Text = access_token;
 			} ; 
 

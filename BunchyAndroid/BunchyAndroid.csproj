@@ -68,6 +68,7 @@
     <Compile Include="GcmService.cs" />
     <Compile Include="RidesAdapter.cs" />
     <Compile Include="Models\RideDetailModel.cs" />
+    <Compile Include="Models\RegisterExternalUserModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -84,6 +85,7 @@
     <AndroidResource Include="Resources\layout\Rides.axml" />
     <AndroidResource Include="Resources\layout\RidesListItem.xml" />
     <AndroidResource Include="Resources\layout\RideDetail.axml" />
+    <AndroidResource Include="Resources\layout\NewUser.axml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <ItemGroup>
