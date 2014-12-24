@@ -42,7 +42,8 @@ namespace BunchyAndroid
 
 		public List<RideModel> GetBunches(string username)
 		{
-			var request = HttpWebRequest.Create(string.Format(@"http://private-d1ca0-bunchyapi.apiary-mock.com/bunch/get/{0}",username));
+			//var request = HttpWebRequest.Create(string.Format(@"http://private-d1ca0-bunchyapi.apiary-mock.com/bunch/get/{0}",username));
+			var request = HttpWebRequest.Create(string.Format(@"http://private-d1ca0-bunchyapi.apiary-mock.com/bunch/get/{0}","foo"));
 			//var request = HttpWebRequest.Create(string.Format(@"http://192.168.56.1:1524/api/bunch/get/{0}", "townsville"));
 			request.ContentType = "application/json";
 			request.Method = "GET";

@@ -30,6 +30,9 @@ namespace BunchyAndroid
 			SetContentView (Resource.Layout.NewUser);
 			Button buttonSubmit = FindViewById<Button> (Resource.Id.buttonNewUserSubmit);
 
+			IEnumerable<Account> accounts = AccountStore.Create (this).FindAccountsForService ("google");
+			Account useraccount = accounts.FirstOrDefault();
+
 			edittext = FindViewById<EditText> (Resource.Id.editTextUserName);
 
 			buttonSubmit.Click += buttonSubmit_Click;
@@ -216,6 +219,7 @@ namespace BunchyAndroid
 					_TokenResponse = BunchyAuth(access_token_return,"google");
 					e.Account.Username = _TokenResponse.Username;
 					if (e.Account.Username == "New User") {
+					AccountStore.Create (this).Save (e.Account, "google");
 					var newuserintent = new Intent(this, typeof(NewUserActivity));
 					StartActivity(newuserintent);
 					}

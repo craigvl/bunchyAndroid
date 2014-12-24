@@ -17,6 +17,9 @@ namespace BunchyAndroid.Models
 			[JsonProperty("userName")]
 			public string Username { get; set; }
 
+			[JsonProperty("email")]
+			public string Email { get; set; }
+
 			[JsonProperty(".issued")]
 			public string IssuedAt { get; set; }
 
